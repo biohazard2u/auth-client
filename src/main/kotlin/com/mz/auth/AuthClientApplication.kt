@@ -4,8 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class AuthClientApplication
+open class AuthClientApplication
 
 fun main(args: Array<String>) {
     runApplication<AuthClientApplication>(*args)
+	println("Starting this Kotlin application - AuthClientApplication")
 }
