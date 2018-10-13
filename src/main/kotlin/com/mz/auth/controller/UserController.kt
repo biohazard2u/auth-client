@@ -36,7 +36,7 @@ class UserController {
 	 * @param String code.
 	 */
 	@GetMapping("/showUsers")
-	fun showUsers(@RequestParam("code") code: String): ModelAndView? {
+	fun showUsers(@RequestParam(value = "code") code: String): ModelAndView? {
 		println("Client - UserController - showUsers()")
 		val responseEntity: ResponseEntity<String>
 		println("Authorization code: $code")
@@ -52,7 +52,7 @@ class UserController {
 		val request: HttpEntity<String> = HttpEntity<String>(headers)
 
 		val access_token_url: String =
-				"http://localhost:8080/oauth/token" + "?code=" + code + "&grant_type=authorization_code" + "&redirect_uri=http://localhost:8090/user/showUsers"
+				"http://localhost:8080/oauth/token" + "?code=" + code + "&grant_type=authorization_code" + "&redirect_uri=http://localhost:8090/user/ShowUsers"
 
 		responseEntity = restTemplate.exchange(access_token_url, HttpMethod.POST, request, String::class.java)
 		println("Access Toker response: " + responseEntity.getBody())
